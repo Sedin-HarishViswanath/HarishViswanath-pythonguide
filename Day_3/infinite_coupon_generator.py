@@ -1,9 +1,3 @@
-# Custom iterator class implementing __iter__ and __next__. Generates unique PREFIX-XXXX 
-# coupon codes up to a maximum total. Supports redeem(code) to mark codes as used and 
-# remaining() to track inventory. Raises StopIteration at the limit. Shows exactly what Python does 
-# internally for every for loop.
-
-
 import random
 
 class CouponIterator:
@@ -16,7 +10,7 @@ class CouponIterator:
         self._index = 0
     
     def generate_codes(self) -> list:
-        seen,codes=set(),[] 
+        seen,codes=set(),[]
         while len(codes)<self.total:
             code=f"{self.prefix}-{random.randint(0,9999):04d}"
             if code not in seen:
@@ -28,7 +22,6 @@ class CouponIterator:
         self._index=0
         return self
     
-  
     def __next__(self)->str:
         if self._index >= self.total:
             raise StopIteration
@@ -59,7 +52,6 @@ if __name__=="__main__":
     try:
         total=int(input("Total no.of coupons: ").strip() or "5")
         discount=int(input("Discount %: ").strip() or "20")
-        
 
     except ValueError:
         print("Invalid input.")
@@ -74,9 +66,9 @@ if __name__=="__main__":
         print(code)
 
     while True:
-        code=input("Enter code to redeem,(Enter q to quit):").strip()
+        code=input("Enter code to redeem,(Enter Done if to quit):").strip()
 
-        if code.upper()=="Q":
+        if code.upper()=="DONE":
             break
 
         coupons.redeem(code)
