@@ -3,7 +3,6 @@ import sys
 
 # SECTION 1 ── FACTORIAL  (Simplest recursion pattern)
 
-
 def factorial(n):
     if n==0:
         return 1
@@ -66,15 +65,14 @@ def folder_size(path):
     total=0
 
     try:
-        for entry in os.scandir(path):
+        for entry in os.scandir(path): 
 
             if entry.is_file(follow_symlinks=False):
-
                 total+=entry.stat().st_size
 
             elif entry.is_dir(follow_symlinks=False):
 
-                total+=folder_size(entry.path)
+                total+=folder_size(entry.path) 
 
     except PermissionError:
 
@@ -83,6 +81,7 @@ def folder_size(path):
     return total
 
 # SECTION 5 ── PRINT TREE  (Recursive tree display)
+
 
 def print_tree(path,indent=0):
 
