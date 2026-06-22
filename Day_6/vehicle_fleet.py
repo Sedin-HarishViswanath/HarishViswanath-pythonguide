@@ -20,7 +20,7 @@ class Vehicle(ABC):
         total        = self.fare(distance)
         vehicle_type = self.__class__.__name__
         print(f"\n  {'─' * 46}")
-        print(f"  🚗  {vehicle_type}  Trip Summary")
+        print(f"  {vehicle_type}  Trip Summary")
         print(f"  {'─' * 46}")
         print(f"  Driver     : {self.driver}")
         print(f"  Vehicle ID : {self.vehicle_id}")

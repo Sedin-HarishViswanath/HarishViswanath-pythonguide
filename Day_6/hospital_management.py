@@ -16,8 +16,6 @@ class Person:
     def contact(self):
         return self.__contact
 
-# ---------------- Doctor ----------------
-
 class Doctor(Person):
     def __init__(
         self,
@@ -53,9 +51,6 @@ class Doctor(Person):
             f"Fee: ₹{self.__fee}"
         )
 
-
-# ---------------- Patient ----------------
-
 class Patient(Person):
     def __init__(
         self,
@@ -86,8 +81,6 @@ class Patient(Person):
     def __str__(self):
         return f"Patient ID: {self.__patient_id}, {self.name}"
 
-
-# ---------------- Hospital ----------------
 
 class Hospital:
     def __init__(self, name: str):
@@ -133,7 +126,6 @@ class Hospital:
 
         print(f"Appointments : {total_appointments}")
 
-    # Bonus
     def billing_report(self, patient: Patient):
         print("\n===== BILLING REPORT =====")
         print(f"Patient : {patient.name}")
@@ -150,7 +142,8 @@ class Hospital:
         print("-" * 30)
         print(f"Total Bill : ₹{total}")
 
-# ---------------- TESTING ----------------
+
+
 
 hospital = Hospital("Apollo Hospital")
 
@@ -176,7 +169,6 @@ d2 = Doctor(
 hospital.add_doctor(d1)
 hospital.add_doctor(d2)
 
-# Patients
 p1 = Patient(
     101,
     "Harish",
@@ -186,17 +178,13 @@ p1 = Patient(
 
 hospital.add_patient(p1)
 
-# Search Doctor
 print("Cardiology Doctors:")
 for doctor in hospital.find_doctor("Cardiology"):
     print(doctor)
 
-# Book appointments
 hospital.book_appointment(p1, d1)
 hospital.book_appointment(p1, d2)
 
-# Summary
 hospital.daily_summary()
 
-# Invoice
 hospital.billing_report(p1)

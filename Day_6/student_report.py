@@ -58,9 +58,6 @@ class Student:
             f"Grade: {self.grade}"
         )
 
-
-# ------------------ DEMO ------------------
-
 s1 = Student("Harish", 101)
 s1.add_marks("Maths", 95)
 s1.add_marks("Science", 88)
