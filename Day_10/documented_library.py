@@ -24,7 +24,6 @@ VEHICLE_RATES: dict[str, float] = {
     "auto": 12.0,
 }
 
-
 class FareCalculator:
     """Calculates cab fares for various vehicle types."""
 
