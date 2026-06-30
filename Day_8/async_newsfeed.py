@@ -39,6 +39,6 @@ async def main():
     print(f"\nDone in {elapsed:.1f}s (vs {sequential_estimate:.1f}s sequential)")
     print(f"Speedup: {sequential_estimate / elapsed:.2f}x")
 
-
 if __name__ == "__main__":
     asyncio.run(main())
+

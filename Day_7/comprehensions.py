@@ -13,7 +13,6 @@ Constraint check:
 
 import sys
 
-
 def task1_squares_of_evens():
     """Squares of even numbers from 1-100."""
     squares = [x**2 for x in range(1, 101) if x % 2 == 0]

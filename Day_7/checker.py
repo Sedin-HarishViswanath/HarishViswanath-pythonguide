@@ -1,6 +1,6 @@
 """
 Day 7 — Assignment 1: Virtual Environment & Dependency Manager
-----------------------------------------------------------------
+----------------------------------------------------------- -----
 Setup (run these once, before this script, inside your project folder):
  
     python -m venv myenv
@@ -19,11 +19,9 @@ package name is only known at runtime as a string).
 
 import importlib
 import sys
-
 # Packages to verify. "nonexistent" is included on purpose to prove the
 # checker correctly reports a MISS instead of crashing.
 PACKAGES = ["requests", "pandas", "numpy", "nonexistent"]
-
 
 def check_package(pkg_name: str) -> bool:
     """Try to import a package by name; return True if it succeeds."""
