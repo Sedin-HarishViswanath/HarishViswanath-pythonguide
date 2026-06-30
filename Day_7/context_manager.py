@@ -60,7 +60,7 @@ def timer():
         print(f"  ⏱ Block took {elapsed:.4f} seconds")
 
 
-def demo_file_handler():
+def file_handler():
     print("1) FileHandler — normal write/read")
     with FileHandler("demo.txt", "w") as f:
         f.write("Hello from Day 7 assignment 3\n")
@@ -76,7 +76,7 @@ def demo_file_handler():
     print("  Program continued — exception was suppressed, file was closed")
 
 
-def demo_db_connection():
+def db_connection():
     print("\n3) db_connection — normal use")
     with db_connection("freelancer_saas") as conn:
         print(f"  Using connection: {conn}")
@@ -90,7 +90,7 @@ def demo_db_connection():
         print("  (Connection was still closed before the exception propagated)")
 
 
-def demo_timer():
+def timer():
     print("\n5) Bonus Timer context manager")
     with timer():
         total = sum(x**2 for x in range(1_000_000))
@@ -98,9 +98,9 @@ def demo_timer():
 
 
 def main():
-    demo_file_handler()
-    demo_db_connection()
-    demo_timer()
+    file_handler()
+    db_connection()
+    timer()
 
 
 if __name__ == "__main__":
