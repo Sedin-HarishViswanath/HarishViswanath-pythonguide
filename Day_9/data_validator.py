@@ -48,6 +48,7 @@ class Order(BaseModel):
     discount: float = Field(0.0, ge=0)
     tip: Optional[float] = Field(None, ge=0, le=500)
 
+
     @model_validator(mode="after")
     def total_must_be_positive(self) -> "Order":
         total = sum(i.price * i.quantity for i in self.items) - self.discount
@@ -80,7 +81,7 @@ def main() -> None:
         tip=30.0,
     )
     print(good.model_dump_json(indent=2))
-    print(f"  -> computed total: \u20b9{good.total:.2f}")
+    print(f"  -> computed total: {good.total:.2f}")
 
     print("\n=== Invalid: field-level constraint violations ===")
     try:
@@ -92,7 +93,7 @@ def main() -> None:
             tip=1000,                     # le=500 fails
         )
     except ValidationError as e:
-        print_errors(e)
+        print_errors(e.json(indent=4))
 
     print("\n=== Invalid: business rule (discount exceeds cart total) ===")
     try:
@@ -104,7 +105,7 @@ def main() -> None:
             discount=100.0,  # bigger than the 80.0 cart total
         )
     except ValidationError as e:
-        print_errors(e)
+        print_errors(e.json(indent=4))
 
     print("\n=== Invalid: nested item constraint (quantity too high) ===")
     try:
@@ -115,7 +116,7 @@ def main() -> None:
             payment_method=PaymentMethod.UPI,
         )
     except ValidationError as e:
-        print_errors(e)
+        print_errors(e.json(indent=4))
 
 
 if __name__ == "__main__":
